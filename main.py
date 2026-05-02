@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from extract_text import extract_text
 from url_checker import url_checker
+from url_fetcher import url_fetcher
 
 def main():
     # Initialize session state FIRST
@@ -42,7 +43,9 @@ def main():
         url_checker()
     elif selected_option == 'URL Fetcher':
         st.title("URL Fetcher")
-        st.info("This tool is under development. Please check back later.")
+        st.text_input("Enter URL to fetch:", key="fetch_url_input")
+        url_fetcher(st.session_state.fetch_url_input)
+
 
 
 if __name__ == "__main__":
