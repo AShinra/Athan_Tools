@@ -4,7 +4,7 @@ from extract_text import extract_text
 from url_checker import url_checker
 
 def main():
-    # Get layout preference from session state
+    # Initialize session state FIRST
     if 'layout' not in st.session_state:
         st.session_state.layout = 'Centered'
     
@@ -15,7 +15,7 @@ def main():
     
     st.set_page_config(
         page_title='My Tools',
-        layout=layout_map[st.session_state.layout]
+        layout=layout_map.get(st.session_state.layout, 'centered')
     )
     
     with st.sidebar:
