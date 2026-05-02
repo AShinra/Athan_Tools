@@ -43,16 +43,7 @@ def main():
                 """,
                 unsafe_allow_html=True)
         elif theme_radio == 'System Default':
-            st.markdown(
-                """
-                <style>
-                body {
-                    background-color: var(--bg-color);
-                    color: var(--text-color);
-                }
-                </style>
-                """,
-                unsafe_allow_html=True)
+            pass
         
         
 
