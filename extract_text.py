@@ -5,6 +5,7 @@ import requests
 from content_loader import load_content
 
 def extract_text():
+    st.sidebar()
     pill_options = st.pills(
         label='Get Text', label_visibility='collapsed', options=['From URL', 'From HTML'])
     
