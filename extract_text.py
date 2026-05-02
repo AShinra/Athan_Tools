@@ -6,7 +6,7 @@ from content_loader import load_content
 
 def extract_text():
     pill_options = st.pills(
-        label='Get Text', label_visibility='collapsed', options=['From URL', 'From HTML'], width=200 )
+        label='Get Text', label_visibility='collapsed', options=['From URL', 'From HTML'])
     
     if pill_options == 'From URL':
         st.title('Extract Text from URL')
@@ -23,7 +23,7 @@ def extract_text():
     elif pill_options == 'From HTML':
         st.title('Extract Text from HTML')
 
-        html_input = st.text_area('Enter the HTML content you want to extract text from:', height=100)
+        html_input = st.text_area('Enter the HTML content you want to extract text from:', height=200)
         if html_input:
             if st.button(label='Extract Text', key='extract_html_text_button',):
                 text = get_text_from_html(html_input)
