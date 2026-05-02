@@ -1,16 +1,15 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from extract_text import extract_text
-from pdf_to_excel import pdf_to_excel   
-
+from url_checker import url_checker
 
 def main():
     with st.sidebar:
         selected_option = option_menu(
             menu_title='My Tools',
             menu_icon='gear',
-            options=['Home', 'Extract Text', 'PDF to Excel', 'About', 'Contact'],
-            icons=["house-door", "file-text", "file-earmark-spreadsheet", "question-circle", "chat-dots"],)
+            options=['Home', 'Extract Text', 'URL Checker', 'About', 'Contact'],
+            icons=["house-door", "file-text", "link-45deg", "question-circle", "chat-dots"],)
     
         theme_radio = st.pills('Choose a theme:', ['Light', 'Dark', 'System Default'])
         layout_radio = st.pills('Choose a layout:', ['Centered', 'Wide'])
@@ -61,9 +60,10 @@ def main():
 
     if selected_option == 'Extract Text':        
         extract_text()
-    elif selected_option == 'PDF to Excel':
-        pdf_to_excel()
+    elif selected_option == 'URL Checker':
+        url_checker()
 
 
-main()
+if __name__ == "__main__":
+    main()
 

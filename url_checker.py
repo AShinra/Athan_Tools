@@ -56,7 +56,3 @@ def url_checker():
 
             except requests.exceptions.RequestException as e:
                 st.error(f"API request failed: {e}")
-
-if __name__ == "__main__":
-    st.title("URL Checker")
-    url_checker()
