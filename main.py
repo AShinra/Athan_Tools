@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 from extract_text import extract_text
+from pdf_to_excel import pdf_to_excel   
 
 
 def main():
@@ -8,8 +9,8 @@ def main():
         selected_option = option_menu(
             menu_title='My Tools',
             menu_icon='gear',
-            options=['Home', 'Extract Text', 'About', 'Contact'],
-            icons=["house-door", "file-text", "question-circle", "chat-dots"],)
+            options=['Home', 'Extract Text', 'PDF to Excel', 'About', 'Contact'],
+            icons=["house-door", "file-text", "file-earmark-spreadsheet", "question-circle", "chat-dots"],)
     
         theme_radio = st.pills('Choose a theme:', ['Light', 'Dark', 'System Default'])
         layout_radio = st.pills('Choose a layout:', ['Centered', 'Wide'])
@@ -60,7 +61,8 @@ def main():
 
     if selected_option == 'Extract Text':        
         extract_text()
-        
+    elif selected_option == 'PDF to Excel':
+        pdf_to_excel()
 
 
 main()
