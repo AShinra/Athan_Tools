@@ -8,8 +8,6 @@ def extract_text():
     pill_options = st.pills(
         label='Get Text', label_visibility='collapsed', options=['From URL', 'From HTML'], width=200 )
     
-    pill_options = st.session_state.get('pill_options', 'From URL')
-
     if pill_options == 'From URL':
         st.title('Extract Text from URL')
 
