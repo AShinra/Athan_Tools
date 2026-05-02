@@ -43,7 +43,6 @@ def main():
         url_checker()
     elif selected_option == 'URL Fetcher':
         st.title("URL Fetcher")
-        st.text_input("Enter URL to fetch:", key="fetch_url_input")
         fetch_url(st.text_input("Enter URL to fetch:", key="fetch_url_input"), timeout=10)
     
 if __name__ == "__main__":
