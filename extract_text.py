@@ -11,13 +11,11 @@ def extract_text():
     if pill_options == 'From URL':
         st.title('Extract Text from URL')
 
-        cols = st.columns(2)
-        with cols[0]:
-            url = st.text_input('Enter the URL of the webpage you want to extract text from:')
-            if is_valid_url(url):
-                text = get_text_from_url(url)[0]
-        with cols[1]:
-            load_content(get_text_from_url(url)[1])
+        url = st.text_input('Enter the URL of the webpage you want to extract text from:')
+        if is_valid_url(url):
+            text = get_text_from_url(url)[0]
+        
+        load_content(get_text_from_url(url)[1])
         
 
     elif pill_options == 'From HTML':
