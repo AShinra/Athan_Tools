@@ -4,6 +4,29 @@ from extract_text import extract_text
 from url_checker import url_checker
 
 def main():
+    # Get theme preference from session state
+    if 'theme' not in st.session_state:
+        st.session_state.theme = 'System Default'
+    if 'layout' not in st.session_state:
+        st.session_state.layout = 'Centered'
+    
+    # Set page config first with current theme
+    theme_map = {
+        'Light': 'light',
+        'Dark': 'dark',
+        'System Default': None
+    }
+    layout_map = {
+        'Centered': 'centered',
+        'Wide': 'wide'
+    }
+    
+    st.set_page_config(
+        page_title='My Tools',
+        theme=theme_map[st.session_state.theme],
+        layout=layout_map[st.session_state.layout]
+    )
+    
     with st.sidebar:
         selected_option = option_menu(
             menu_title='My Tools',
@@ -14,36 +37,13 @@ def main():
         theme_radio = st.pills('Choose a theme:', ['Light', 'Dark', 'System Default'])
         layout_radio = st.pills('Choose a layout:', ['Centered', 'Wide'])
 
-        if layout_radio == 'Centered':
-            st.set_page_config(layout='centered')
-        elif layout_radio == 'Wide':
-            st.set_page_config(layout='wide')
-
-        if theme_radio == 'Light':
-            st.markdown(
-                """
-                <style>
-                body {
-                    background-color: #ffffff;
-                    color: #000000;
-                }
-                </style>
-                """,
-                unsafe_allow_html=True
-            )
-        elif theme_radio == 'Dark':
-            st.markdown(
-                """
-                <style>
-                body {
-                    background-color: #000000;
-                    color: #ffffff;
-                }
-                </style>
-                """,
-                unsafe_allow_html=True)
-        elif theme_radio == 'System Default':
-            pass
+        if theme_radio != st.session_state.theme:
+            st.session_state.theme = theme_radio
+            st.rerun()
+        
+        if layout_radio != st.session_state.layout:
+            st.session_state.layout = layout_radio
+            st.rerun()
         
         
 
