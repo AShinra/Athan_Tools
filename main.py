@@ -22,8 +22,8 @@ def main():
         selected_option = option_menu(
             menu_title='My Tools',
             menu_icon='gear',
-            options=['Home', 'Extract Text', 'URL Checker', 'About', 'Contact'],
-            icons=["house-door", "file-text", "link-45deg", "question-circle", "chat-dots"],)
+            options=['Home', 'Extract Text', 'URL Checker', 'URL Fetcher', 'About', 'Contact'],
+            icons=["house-door", "file-text", "link-45deg", "browser-chrome","question-circle", "chat-dots"],)
     
         st.info('Theme is controlled via `.streamlit/config.toml`')
         layout_radio = st.pills('Choose a layout:', ['Centered', 'Wide'])
@@ -40,6 +40,9 @@ def main():
         extract_text()
     elif selected_option == 'URL Checker':
         url_checker()
+    elif selected_option == 'URL Fetcher':
+        st.title("URL Fetcher")
+        st.info("This tool is under development. Please check back later.")
 
 
 if __name__ == "__main__":
