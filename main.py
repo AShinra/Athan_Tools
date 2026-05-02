@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from extract_text import extract_text
 from url_checker import url_checker
-from url_fetcher import url_fetcher
+from url_fetcher import fetch_url
 
 def main():
     # Initialize session state FIRST

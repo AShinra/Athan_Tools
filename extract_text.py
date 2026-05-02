@@ -18,7 +18,6 @@ def extract_text():
         
         load_content(get_text_from_url(url)[1])
         
-
     elif pill_options == 'From HTML':
         st.title('Extract Text from HTML')
 
